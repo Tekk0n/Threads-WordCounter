@@ -25,10 +25,8 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("Textos a traducir: " + numberOfTexts);
-        System.out.println("Contando palabras...");
+        System.out.println("Texts to count: " + numberOfTexts);
 
-        //¿Es realmente concurrente?
         try (DirectoryStream<Path> fileStream = Files.newDirectoryStream(filePath)) {
             for (Path stream : fileStream) {
                 int i = 1;
@@ -36,11 +34,9 @@ public class Main {
                 wordCounter.start();
             }
 
-
         } catch (IOException e) {
             e.printStackTrace();
         }
-
 
     }
 }

@@ -22,20 +22,18 @@ public class WordCounter extends Thread {
         try (FileReader reader = new FileReader(String.valueOf(_text))) {
             BufferedReader br = new BufferedReader(reader);
 
-            while (reader.ready()) {
-                line = br.readLine();
+            line = br.readLine();
+            while (line != null) {
                 counter = line.split(" ");
-                //Evita contar saltos de linea como una palabra
-                if (!line.equals("")) {
-                    count += counter.length;
-                }
+                count += counter.length;
+                line = br.readLine();
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("File " + _text.getFileName() + " has " + count);
+        System.out.println("\nFile " + _text.getFileName() + " has " + count);
     }
 
 }
